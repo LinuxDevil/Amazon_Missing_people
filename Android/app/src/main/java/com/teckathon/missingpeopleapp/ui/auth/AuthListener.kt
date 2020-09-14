@@ -1,5 +1,8 @@
 package com.teckathon.missingpeopleapp.ui.auth
 
+import androidx.lifecycle.LiveData
+import com.teckathon.missingpeopleapp.data.database.entities.User
+
 interface AuthListener {
 
     /**
@@ -10,7 +13,7 @@ interface AuthListener {
     /**
      *
      */
-    fun onSuccess()
+    fun onSuccess(user: User)
 
     /**
      *
