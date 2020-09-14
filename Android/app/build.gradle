@@ -68,6 +68,8 @@ dependencies {
 
     // DI
     implementation 'org.kodein.di:kodein-di:7.0.0'
+    implementation "org.kodein.di:kodein-di-framework-android-x:7.0.0"
+
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"
