@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-console.log('here');
 const missingPersonSchema = new Schema ({
   name_arabic : {
     type: String
@@ -31,6 +30,9 @@ const missingPersonSchema = new Schema ({
     type: Date
   },
   status : {
+    type: String
+  },
+  last_known_location : {
     type: String
   }
 });

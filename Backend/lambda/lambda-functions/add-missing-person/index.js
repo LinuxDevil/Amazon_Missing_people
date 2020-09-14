@@ -5,5 +5,13 @@ let MissingPerson = require('/opt/nodejs/models/MissingPerson.js');
 exports.handler = async (event,context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     await connectionCheck;
-    return MissingPerson.find().limit(10);
+    const newMissingPerson = new MissingPerson(event);
+    newMissingPerson.save();
+    
+    return {
+        "status":200,
+        body:JSON.stringify({
+            "message":"New Missing Person Added"
+        })
+    };
 };
