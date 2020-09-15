@@ -14,7 +14,7 @@ const missingPersonSchema = new Schema ({
   },
   national_number : {
     type: Number,
-    maxlength: 17
+    unique: true,
   },
   gender : {
     type: String,
@@ -28,7 +28,8 @@ const missingPersonSchema = new Schema ({
     maxlength: 30
   },
   photo : { // will be a url for the person's photo as images are in s3
-    type: String
+    type: String,
+    maxlength:100
   },
   missing_since : {
     type: Date
@@ -42,7 +43,7 @@ const missingPersonSchema = new Schema ({
     required: true,
     validate: {
       validator: function(v) {
-        return /\d{3}-\d{3}-\d{4}/.test(v);
+        return /\d{10}/.test(v);
       },
       message: props => `${props.value} is not a valid phone number!`
     },

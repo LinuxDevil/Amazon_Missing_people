@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const foundPersonSchema = new Schema ({
   name : {
     type: String,
@@ -13,7 +14,7 @@ const foundPersonSchema = new Schema ({
   },
   national_number : {
     type: Number,
-    maxlength: 17
+    unique: true
   },
   gender : {
     type: String,
@@ -33,20 +34,20 @@ const foundPersonSchema = new Schema ({
   date_found : { // it's a timestamp (time & date)
     type: Date
   },
-  status : {
-    type: String,
-    enum: ['Healthy','Wounded','Unconscious','Dead']
-  },
   place_found : {
     type: String,
     maxlength:100
+  },
+  status : {
+    type: String,
+    enum: ['Healthy','Wounded','Unconscious','Dead']
   },
   contact_number : { // the phone number of the poster of the 'found' post. 079-646-8922 format
     type: String,
     maxlength: 10,
     validate: {
       validator: function(v) {
-        return /\d{3}-\d{3}-\d{4}/.test(v);
+        return /\d{10}/.test(v);
       },
       message: props => `${props.value} is not a valid phone number!`
     }
