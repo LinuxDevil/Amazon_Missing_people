@@ -15,4 +15,13 @@
         android:name="com.teckathon.missingpeopleapp.ui.fragments.home.MainFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/informMissingFragment"
+        android:name="com.teckathon.missingpeopleapp.ui.fragments.missing.InformMissingFragment"
+        android:label="inform_missing_fragment"
+        tools:layout="@layout/inform_missing_fragment" />
+    <fragment
+        android:id="@+id/informFoundFragment"
+        android:name="com.teckathon.missingpeopleapp.ui.fragments.found.InformFoundFragment"
+        android:label="InformFoundFragment" />
 </navigation>

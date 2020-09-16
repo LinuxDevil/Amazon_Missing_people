@@ -31,7 +31,7 @@
             android:layout_weight="1"
             app:navGraph="@navigation/navigation" />
 
-        <nl.joery.animatedbottombar.AnimatedBottomBar
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_bar"
             android:background="#FFF"
             app:abb_tabColorDisabled="@color/colorPrimary"
@@ -42,8 +42,7 @@
             app:abb_selectedTabType="text"
             app:abb_indicatorAppearance="round"
             app:abb_indicatorMargin="16dp"
-            app:abb_indicatorHeight="4dp"
-            app:abb_tabs="@menu/tabs"
+            app:menu="@menu/tabs"
             app:abb_selectedIndex="1" />
 
     </LinearLayout>

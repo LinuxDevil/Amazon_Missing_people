@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.teckathon.missingpeopleapp.ui.fragments.missing.InformMissingViewModel" />
+    </data>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.fragments.missing.InformMissingFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/imageLinear"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/addPhotoButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/info_rectangle"
+                        android:src="@drawable/addphotoicon"
+                        android:contentDescription="@string/add_photo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/add_photo"
+                        android:textColor="@color/navy"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/infoLinear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/imageLinear"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/informFirstNameTextView"
+                        android:text="First Name:"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informFirstNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:paddingStart="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/informMiddleTextView"
+                        android:text="Middle Name"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informMiddleNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:paddingStart="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/informLastNameTextView"
+                        android:text="Last Name"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informLastNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:paddingStart="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/informCityTextView"
+                        android:text="City:"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informCityEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:paddingStart="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/infromLocationFoundTextView"
+                        android:text="Location Found:"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informLocationFoundEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:drawableRight="@drawable/mapicon"
+                        android:paddingStart="20dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/informNotesTextView"
+                        android:text="Notes / ملاحظات"
+                        android:textColor="@color/navy"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/informNotesEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_margin="5dp"
+                        android:textSize="12sp"
+                        android:paddingStart="20dp"/>
+
+                    <Button
+                        android:id="@+id/submitButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/navy_button"
+                        android:text="Submit"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Submit Using ID Card."
+                        android:textAlignment="center"
+                        android:textColor="@color/navy"
+                        android:id="@+id/scanID"
+                        android:layout_margin="5dp"/>
+
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+</layout>

@@ -23,14 +23,34 @@ private const val INTERVAL = 1
  * @property missing MutableLiveData<Array<Missing>>
  * @constructor
  */
-class MissingRepository(private val api: PeopleApi, private val database: AppDatabase, private val preferences: PreferenceProvider): SafeApi() {
+class MissingRepository(
+    private val api: PeopleApi,
+    private val database: AppDatabase,
+    private val preferences: PreferenceProvider
+) : SafeApi() {
 
     private val missing = MutableLiveData<Array<Missing>>()
 
     init {
-        missing.observeForever{
+        missing.observeForever {
             saveMissing(it)
         }
+    }
+
+
+    suspend fun addMissing(
+        name: String,
+        motherName: String,
+        nationalNumber: String,
+        gender: String,
+        birthDate: String,
+        birthPlace: String,
+        photoUrl: String,
+        missingSince: String,
+        lastKnownLocation: String,
+        contactNumber: String
+        ) {
+        apiRequest { api.addMissing(name, motherName, nationalNumber, gender, birthDate, birthPlace, photoUrl, missingSince, lastKnownLocation, contactNumber) }
     }
 
     /**
