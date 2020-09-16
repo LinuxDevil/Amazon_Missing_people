@@ -3,6 +3,7 @@
 ## DEMO
   https://www.getpostman.com/collections/abe3d09eab858b5485a1
   for a test of the API's Routes
+  [APK](https://github.com/LinuxDevil/Amazon_Missing_people/blob/master/app-debug.apk)
   
 ## Idea
   - Findr is the concept of a full-fledged framework of dealing with the issue of missing & lost people 
@@ -13,7 +14,7 @@
     Additionally the app matches the poster of a missing person's post, if the missing person
     was already found in the records as a found(lost) person.
 
-## Structure
+## Base Structure
   The app is based on the Serverless architecture (FaaS) for the Back-end, 
   based on the AWS Lambda platform.
   The Front-end is an android application.
