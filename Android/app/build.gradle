@@ -9,16 +9,20 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.teckathon.missingpeopleapp"
-        minSdkVersion 22
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        targetCompatibility = "8"
-        sourceCompatibility = "8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     buildTypes {
         release {
@@ -33,9 +37,14 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     def lifecycle_version = "2.2.0"
     def room_version = "2.2.5"
     def nav_version = "2.3.0"
+    def groupie_version = "2.8.1"
+    def preference_version = "1.1.1"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -70,7 +79,6 @@ dependencies {
     implementation 'org.kodein.di:kodein-di:7.0.0'
     implementation "org.kodein.di:kodein-di-framework-android-x:7.0.0"
 
-
     // Room
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
@@ -80,5 +88,15 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    // Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Recycler Groupie
+    implementation "com.xwray:groupie:$groupie_version"
+    implementation "com.xwray:groupie-databinding:$groupie_version"
+    implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
+
+    // Preferences
+    implementation "androidx.preference:preference-ktx:$preference_version"
 
 }

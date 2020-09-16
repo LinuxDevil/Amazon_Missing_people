@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.teckathon.missingpeopleapp.ui.fragments.profile.ProfileViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.profile.ProfileFragment">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="10pt"
+            android:src="@drawable/dummyprofile"
+            app:civ_border_color="#FF000000"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_circle_no_borders"
+            android:src="@drawable/editimageicon"
+            app:layout_constraintTop_toBottomOf="@id/profile_image"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            android:translationY="-50dp"
+            android:translationX="-80dp"/>
+
+        <LinearLayout
+            android:id="@+id/middleControls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_image"
+            android:divider="@drawable/divider_linear"
+            android:showDividers="middle"
+            android:layout_marginTop="1pt">
+
+            <ImageButton
+
+                android:id="@+id/profileInfoButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/orange_circle"
+                android:src="@drawable/userinfoicon"
+                android:contentDescription="@string/profile_info_button" />
+
+            <ImageButton
+                android:id="@+id/profilePostsButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/white_circle"
+                android:src="@drawable/postsicon"
+                android:contentDescription="@string/profile_posts_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/middleControls"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="15pt"
+            android:layout_marginRight="15pt"
+            android:padding="10pt"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/info_rectangle"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileNameTextView"
+                android:text="@string/my_name"
+                android:textColor="@color/colorPrimary"
+                android:drawablePadding="5dp"
+                android:textSize="16sp"
+                app:drawableLeftCompat="@drawable/personicon" />
+
+            <EditText
+                android:id="@+id/profileNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_margin="5dp"
+                android:drawableEnd="@drawable/editgrayicon"
+                android:hint="@string/name"
+                android:textSize="12sp"
+                android:text="@={viewmodel.user.name}"
+                android:paddingStart="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profilePhoneTextView"
+                android:text="@string/phone_number"
+                android:textColor="@color/colorPrimary"
+                android:drawablePadding="5dp"
+                android:textSize="16sp"
+                app:drawableLeftCompat="@drawable/mobileicon" />
+
+            <EditText
+                android:id="@+id/profilePhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_margin="5dp"
+                android:drawableEnd="@drawable/editgrayicon"
+                android:hint="@string/phone_hint"
+                android:inputType="text"
+                android:textSize="12sp"
+                android:text="@={viewmodel.user.email}"
+                android:paddingStart="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileCityTextView"
+                android:text="@string/city"
+                android:textColor="@color/colorPrimary"
+                android:drawablePadding="5dp"
+                android:textSize="16sp"
+                app:drawableLeftCompat="@drawable/locationicon" />
+
+            <EditText
+                android:id="@+id/profileCityEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_margin="5dp"
+                android:drawableEnd="@drawable/editgrayicon"
+                android:hint="@string/amman"
+                android:textSize="12sp"
+                android:paddingStart="20dp"
+                android:autofillHints="@string/amman" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.2"
+                android:text="@string/save"
+                android:layout_marginTop="5pt"
+                android:layout_marginLeft="15pt"
+                android:layout_marginRight="15pt"
+                android:layout_marginBottom="5pt"
+                android:background="@drawable/round_button"
+                />
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -13,7 +13,7 @@ abstract class SafeApi {
     suspend fun<T: Any> apiRequest(call: suspend (() -> Response<T>)) : T {
         val response = call.invoke()
         if (response.isSuccessful) {
-            return response.body()!!;
+            return response.body()!!
         }
         val error = response.errorBody()?.string()
         val message = StringBuilder()

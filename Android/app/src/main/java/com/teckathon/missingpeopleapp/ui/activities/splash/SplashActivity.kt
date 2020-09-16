@@ -1,14 +1,12 @@
-package com.teckathon.missingpeopleapp.ui.splash
+package com.teckathon.missingpeopleapp.ui.activities.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
-import android.text.LoginFilter
 import com.teckathon.missingpeopleapp.R
-import com.teckathon.missingpeopleapp.ui.auth.LoginActivity
+import com.teckathon.missingpeopleapp.ui.activities.auth.LoginActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -30,9 +28,9 @@ class SplashActivity : AppCompatActivity() {
 
     private fun animateCircle(rotation: Float, millis: Long) {
         circle_1.animate().rotationBy(rotation).setDuration(millis).start()
-        circle_2.animate().rotationBy(rotation).setDuration(millis).start()
-        circle_3.animate().rotationBy(rotation).setDuration(millis).start()
-        circle_4.animate().rotationBy(rotation).setDuration(millis).start()
-        circle_5.animate().rotationBy(rotation).setDuration(millis).start()
+        circle_2.animate().rotationBy(rotation).setDuration(millis).alpha(1f).start()
+        circle_3.animate().rotationBy(rotation).setDuration(millis).alpha(1f).start()
+        circle_4.animate().rotationBy(rotation).setDuration(millis).alpha(1f).start()
+        circle_5.animate().rotationBy(rotation).setDuration(millis).alpha(1f).start()
     }
 }

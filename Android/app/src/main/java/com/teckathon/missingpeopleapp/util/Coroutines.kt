@@ -16,4 +16,10 @@ object Coroutines {
         work()
     }
 
+    fun readWrite(work: suspend (() -> Unit)) = CoroutineScope(Dispatchers.IO).launch {
+        work()
+    }
+
+
+
 }

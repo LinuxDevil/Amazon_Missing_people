@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.teckathon.missingpeopleapp.data.database.dao.MissingDao
+import com.teckathon.missingpeopleapp.data.database.dao.UserDao
+import com.teckathon.missingpeopleapp.data.database.entities.Missing
 import com.teckathon.missingpeopleapp.data.database.entities.User
 
 @Database(
-    entities = [User::class],
+    entities = [User::class, Missing::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -18,6 +21,13 @@ abstract class AppDatabase : RoomDatabase() {
      * @return UserDao
      */
     abstract fun getUserDao() : UserDao
+
+    /**
+     * a function that will return the MissingDao
+     * @see MissingDao
+     * @return MissingDao
+     */
+    abstract fun getMissingDao(): MissingDao
 
     companion object {
 

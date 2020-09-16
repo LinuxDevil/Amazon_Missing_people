@@ -1,4 +1,4 @@
-package com.teckathon.missingpeopleapp.data.database
+package com.teckathon.missingpeopleapp.data.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

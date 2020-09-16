@@ -1,6 +1,5 @@
-package com.teckathon.missingpeopleapp.ui.auth
+package com.teckathon.missingpeopleapp.ui.activities.auth
 
-import androidx.lifecycle.LiveData
 import com.teckathon.missingpeopleapp.data.database.entities.User
 
 interface AuthListener {

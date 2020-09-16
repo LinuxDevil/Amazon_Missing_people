@@ -1,4 +1,4 @@
-package com.teckathon.missingpeopleapp.ui.auth
+package com.teckathon.missingpeopleapp.ui.activities.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
