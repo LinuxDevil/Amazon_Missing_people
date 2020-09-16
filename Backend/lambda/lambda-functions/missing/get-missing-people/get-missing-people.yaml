@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  getmissingpeople:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: .
+      Description: ''
+      MemorySize: 384
+      Timeout: 10
+      Role: 'arn:aws:iam::763516876583:role/lambda-cloudwatch-role'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /missing
+            Method: GET
+      Environment:
+        Variables:
+          DB_CONN: >-
+            mongodb+srv://***:***@mern.xupmz.mongodb.net/***?retryWrites=true&w=majority
+      Layers:
+        - 'arn:aws:lambda:eu-central-1:763516876583:layer:mongoose-layer:11'

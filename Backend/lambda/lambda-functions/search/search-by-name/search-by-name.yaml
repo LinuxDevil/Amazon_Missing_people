@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  searchbyname:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: .
+      Description: ''
+      MemorySize: 256
+      Timeout: 4
+      Role: >-
+        arn:aws:iam::763516876583:role/service-role/get-missing-people-role-ypneng9u
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+        Api2:
+          Type: Api
+          Properties:
+            Path: '/search/name/{page}'
+            Method: POST
+        Api3:
+          Type: Api
+          Properties:
+            Path: /search/name
+            Method: POST
+      Environment:
+        Variables:
+          DB_CONN: "\tmongodb+srv://***:***@mern.xupmz.mongodb.net/***?retryWrites=true&w=majority"
+      Layers:
+        - 'arn:aws:lambda:eu-central-1:763516876583:layer:mongoose-layer:11'

@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 const connectionCheck = require('/opt/nodejs/checkConnection.js')(process.env.DB_CONN);
-let FoundPerson = require('/opt/nodejs/models/FoundPerson.js');
+const FoundPerson = require('/opt/nodejs/models/FoundPerson.js');
 
 exports.handler = async (event,context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     await connectionCheck;
-    return FoundPerson.find().limit(10);
+    
+    let resultLimit = 50;
+    let resultsToSkip = event.page ? (event.page - 1) * resultLimit : 0;
+    
+    return FoundPerson.find().sort("-id").limit(resultLimit).skip(resultsToSkip);
 };

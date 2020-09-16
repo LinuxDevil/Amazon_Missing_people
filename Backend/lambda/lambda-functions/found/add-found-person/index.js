@@ -5,13 +5,24 @@ let FoundPerson = require('/opt/nodejs/models/FoundPerson.js');
 exports.handler = async (event,context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     await connectionCheck;
-    const newFoundPerson = new FoundPerson(event);
-    newFoundPerson.save();
     
-    return {
-        "status":200,
-        body:JSON.stringify({
-            "message":"New Found Person Added"
-        })
-    };
+    try {
+        const newFoundPerson = new FoundPerson(event);
+        newFoundPerson.save();
+        return {
+            "status":200,
+            body:JSON.stringify({
+                "message":"New Missing Person Added"
+            })
+        };
+    }
+    catch(err) {
+        return {
+            "status":400,
+            body:JSON.stringify({
+                "message":err.message
+            })
+        };
+    }
+
 };
