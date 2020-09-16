@@ -1,9 +1,12 @@
+  ![Logo](https://github.com/LinuxDevil/Amazon_Missing_people/blob/master/Android/app/src/main/res/drawable/logo.png)
+
 # Amazon_Missing_people (Findr)
   Amazon Teckathon App
+  
+  
 ## DEMO
-  https://www.getpostman.com/collections/abe3d09eab858b5485a1
-  for a test of the API's Routes
-  [APK](https://github.com/LinuxDevil/Amazon_Missing_people/blob/master/app-debug.apk)
+  - [For a test of the API's Routes](https://www.getpostman.com/collections/abe3d09eab858b5485a1)
+  - [If you want to try the application: ](https://github.com/LinuxDevil/Amazon_Missing_people/blob/master/app-debug.apk)
   
 ## Idea
   - Findr is the concept of a full-fledged framework of dealing with the issue of missing & lost people 
