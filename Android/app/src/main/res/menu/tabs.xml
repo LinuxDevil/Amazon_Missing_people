@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/missing"
+        android:title="Missing"
+        android:icon="@drawable/bottommissing"
+        />
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/bottomsearch"
+        />
+
+    <item android:id="@+id/found"
+        android:icon="@drawable/bottomfound"
+        android:title="Found"
+        />
+
+
+</menu>

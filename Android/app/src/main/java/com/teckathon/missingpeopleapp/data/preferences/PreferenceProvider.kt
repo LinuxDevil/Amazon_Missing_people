@@ -1,4 +1,4 @@
-package com.teckathon.missingpeopleapp.data.repositories
+package com.teckathon.missingpeopleapp.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -6,6 +6,12 @@ import androidx.preference.PreferenceManager
 
 private const val TIME_KEY = "TIME_STAMP"
 
+/**
+ *
+ * @property appContext (android.content.Context..android.content.Context?)
+ * @property preference SharedPreferences
+ * @constructor
+ */
 class PreferenceProvider(context: Context) {
 
     private val appContext = context.applicationContext

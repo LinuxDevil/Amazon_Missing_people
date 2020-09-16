@@ -6,7 +6,7 @@ import com.teckathon.missingpeopleapp.data.network.Api
 import com.teckathon.missingpeopleapp.data.network.NetworkIntercepter
 import com.teckathon.missingpeopleapp.data.network.PeopleApi
 import com.teckathon.missingpeopleapp.data.repositories.MissingRepository
-import com.teckathon.missingpeopleapp.data.repositories.PreferenceProvider
+import com.teckathon.missingpeopleapp.data.preferences.PreferenceProvider
 import com.teckathon.missingpeopleapp.data.repositories.UserRepository
 import com.teckathon.missingpeopleapp.ui.activities.auth.AuthViewModelFactory
 import com.teckathon.missingpeopleapp.ui.fragments.home.MainViewModelFactory
@@ -14,6 +14,10 @@ import com.teckathon.missingpeopleapp.ui.fragments.profile.ProfileViewModelFacto
 import org.kodein.di.*
 import org.kodein.di.android.x.androidXModule
 
+/**
+ * Main Application point class
+ * @property di LazyDI
+ */
 class MVVMApplication() : Application(), DIAware {
 
     /**

@@ -10,6 +10,10 @@ import retrofit2.http.GET
 
 interface PeopleApi {
 
+    /**
+     *
+     * @return Response<Array<Missing>>
+     */
     @GET("missing")
     suspend fun getMissing(): Response<Array<Missing>>
 

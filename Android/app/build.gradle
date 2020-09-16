@@ -99,4 +99,7 @@ dependencies {
     // Preferences
     implementation "androidx.preference:preference-ktx:$preference_version"
 
+    // Bottom Navigation Bar
+    implementation 'nl.joery.animatedbottombar:library:1.0.8'
+
 }

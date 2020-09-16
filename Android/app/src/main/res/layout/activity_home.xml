@@ -18,18 +18,33 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_background"
             android:textAlignment="center"
-            app:titleTextColor="@color/colorPrimary"
-            android:background="@drawable/toolbar_background"/>
+            app:titleTextColor="@color/colorPrimary" />
 
         <fragment
             android:id="@+id/fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             app:defaultNavHost="true"
             android:layout_weight="1"
             app:navGraph="@navigation/navigation" />
+
+        <nl.joery.animatedbottombar.AnimatedBottomBar
+            android:id="@+id/bottom_bar"
+            android:background="#FFF"
+            app:abb_tabColorDisabled="@color/colorPrimary"
+            app:abb_tabColor="@color/colorPrimary"
+            app:abb_tabColorSelected="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abb_selectedTabType="text"
+            app:abb_indicatorAppearance="round"
+            app:abb_indicatorMargin="16dp"
+            app:abb_indicatorHeight="4dp"
+            app:abb_tabs="@menu/tabs"
+            app:abb_selectedIndex="1" />
 
     </LinearLayout>
 
@@ -39,6 +54,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/nav_menu"
-        />
+        >
+
+    </com.google.android.material.navigation.NavigationView>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

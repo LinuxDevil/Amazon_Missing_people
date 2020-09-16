@@ -56,6 +56,9 @@ class LoginActivity : AppCompatActivity(), DIAware{
         }
     }
 
+    /**
+     *
+      */
     private fun loginUser() {
         val email = binding.email.text.toString()
         val password = binding.password.text.toString()

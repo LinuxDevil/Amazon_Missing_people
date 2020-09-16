@@ -6,6 +6,7 @@ import com.teckathon.missingpeopleapp.data.database.AppDatabase
 import com.teckathon.missingpeopleapp.data.database.entities.Missing
 import com.teckathon.missingpeopleapp.data.network.PeopleApi
 import com.teckathon.missingpeopleapp.data.network.SafeApi
+import com.teckathon.missingpeopleapp.data.preferences.PreferenceProvider
 import com.teckathon.missingpeopleapp.util.Coroutines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -14,6 +15,14 @@ import java.time.temporal.ChronoUnit
 
 private const val INTERVAL = 1
 
+/**
+ *
+ * @property api PeopleApi
+ * @property database AppDatabase
+ * @property preferences PreferenceProvider
+ * @property missing MutableLiveData<Array<Missing>>
+ * @constructor
+ */
 class MissingRepository(private val api: PeopleApi, private val database: AppDatabase, private val preferences: PreferenceProvider): SafeApi() {
 
     private val missing = MutableLiveData<Array<Missing>>()
@@ -24,6 +33,10 @@ class MissingRepository(private val api: PeopleApi, private val database: AppDat
         }
     }
 
+    /**
+     *
+     * @return LiveData<Array<Missing>>
+     */
     suspend fun getMissing(): LiveData<Array<Missing>> {
         return withContext(Dispatchers.IO) {
             fetchMissing()
@@ -31,6 +44,9 @@ class MissingRepository(private val api: PeopleApi, private val database: AppDat
         }
     }
 
+    /**
+     *
+     */
     private suspend fun fetchMissing() {
         val timeStamp = preferences.getTimeStamp()
 
@@ -50,6 +66,10 @@ class MissingRepository(private val api: PeopleApi, private val database: AppDat
         return ChronoUnit.HOURS.between(timestamp, LocalDateTime.now()) > INTERVAL
     }
 
+    /**
+     *
+     * @param missing Array<Missing>
+     */
     private fun saveMissing(missing: Array<Missing>) {
         Coroutines.readWrite {
             preferences.storeTimeStamp(LocalDateTime.now().toString())

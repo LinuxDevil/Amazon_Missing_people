@@ -10,6 +10,11 @@ import java.lang.StringBuilder
 
 abstract class SafeApi {
 
+    /**
+     *
+     * @param call SuspendFunction0<Response<T>>
+     * @return T
+     */
     suspend fun<T: Any> apiRequest(call: suspend (() -> Response<T>)) : T {
         val response = call.invoke()
         if (response.isSuccessful) {

@@ -13,14 +13,40 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
+/**
+ *
+ * @property repository UserRepository
+ * @constructor
+ */
 class AuthViewModel(private val repository: UserRepository) : ViewModel() {
-    
+
+    /**
+     *
+     * @return LiveData<User>
+     */
     fun getLoggedInUser() = repository.getUser()
 
+    /**
+     *
+     * @param email String
+     * @param password String
+     * @return AuthResponse
+     */
     suspend fun userLogin(email: String, password: String) = withContext(Dispatchers.IO) { repository.userLogin(email, password) }
 
+    /**
+     *
+     * @param email String
+     * @param password String
+     * @return AuthResponse
+     */
     suspend fun userSignUp(email: String, password: String) = withContext(Dispatchers.IO) { repository.userSignUp("Ali", email, password) }
 
+    /**
+     *
+     * @param user User
+     * @return Long
+     */
     suspend fun storeUser(user: User) =  repository.saveUser(user)
 
 }

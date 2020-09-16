@@ -13,10 +13,23 @@ import retrofit2.http.POST
 
 interface Api {
 
+    /**
+     *
+     * @param email String
+     * @param password String
+     * @return Response<AuthResponse>
+     */
     @FormUrlEncoded
     @POST("login")
     suspend fun userLogin(@Field("email") email: String, @Field("password") password: String) : Response<AuthResponse>
 
+    /**
+     *
+     * @param name String
+     * @param email String
+     * @param password String
+     * @return Response<AuthResponse>
+     */
     @FormUrlEncoded
     @POST("signup")
     suspend fun userSignUp(@Field("name") name: String, @Field("email") email: String, @Field("password") password: String): Response<AuthResponse>

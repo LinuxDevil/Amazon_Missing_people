@@ -49,6 +49,10 @@ class RegisterActivity : AppCompatActivity(), DIAware {
 
     }
 
+
+    /**
+     *
+     */
     private fun registerUser() {
         val email = binding.email.text.toString()
         val password = binding.password.text.toString()

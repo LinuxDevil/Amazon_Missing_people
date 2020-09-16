@@ -16,6 +16,11 @@ object Coroutines {
         work()
     }
 
+    /**
+     *
+     * @param work SuspendFunction0<Unit>
+     * @return Job
+     */
     fun readWrite(work: suspend (() -> Unit)) = CoroutineScope(Dispatchers.IO).launch {
         work()
     }
