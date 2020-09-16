@@ -60,8 +60,8 @@ class LoginActivity : AppCompatActivity(), DIAware{
      *
       */
     private fun loginUser() {
-        val email = binding.email.text.toString()
-        val password = binding.password.text.toString()
+        val email = binding.extensionEditText.text.toString()
+        val password = binding.mobileEditText.text.toString()
 
         lifecycleScope.launch {
             try {

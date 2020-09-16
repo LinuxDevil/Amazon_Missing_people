@@ -17,6 +17,8 @@ import org.json.JSONStringer
 import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.instance
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class InformMissingFragment : Fragment(), DIAware {
 
@@ -46,14 +48,14 @@ class InformMissingFragment : Fragment(), DIAware {
                 viewModel.addMissing(
                     name = firstName,
                     "DEFAULT",
+                    "9999999999",
+                    "Male",
+                    LocalDate.now().toString(),
                     "DEFAULT",
                     "DEFAULT",
-                    "DEFAULT",
-                    "DEFAULT",
-                    "DEFAULT",
-                    "DEFAULT",
+                    LocalDate.now().toString(),
                     lastKnownLocation = locationFound,
-                    "888888888",
+                    notes
                 )
             }
 

@@ -9,9 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.teckathon.missingpeopleapp.R
 import com.teckathon.missingpeopleapp.databinding.InformFoundFragmentBinding
+import com.teckathon.missingpeopleapp.util.Coroutines
+import kotlinx.android.synthetic.main.inform_missing_fragment.*
 import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.instance
+import java.time.LocalDate
 
 class InformFoundFragment : Fragment(), DIAware {
 
@@ -26,6 +29,32 @@ class InformFoundFragment : Fragment(), DIAware {
         val binding: InformFoundFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.inform_found_fragment, container, false)
         viewModel = ViewModelProvider(this, factory).get(InformFoundViewModel::class.java)
         binding.viewmodel = viewModel
+
+        binding.submitButton.setOnClickListener {
+            val firstName: String = informFirstNameEditText.text.toString();
+            val middleName = informMiddleNameEditText.text.toString();
+            val lastName = informLastNameEditText.text.toString();
+            val city = informCityEditText.text.toString();
+            val locationFound: String = informLocationFoundEditText.text.toString();
+            val notes = informNotesEditText.text.toString();
+
+            Coroutines.readWrite {
+                viewModel.addFound(
+                    name = firstName,
+                    "DEFAULT",
+                    "9999999999",
+                    "Male",
+                    LocalDate.now().toString(),
+                    city,
+                    "DEFAULT",
+                    LocalDate.now().toString(),
+                    lastKnownLocation = locationFound,
+                    notes
+                )
+            }
+
+        }
+
 
         return binding.root
     }

@@ -152,7 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/informNotesTextView"
-                        android:text="Notes / ملاحظات"
+                        android:text="Mobile"
                         android:textColor="@color/navy"
                         android:drawablePadding="5dp"
                         android:textSize="16sp" />

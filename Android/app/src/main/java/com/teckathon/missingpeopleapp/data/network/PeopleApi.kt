@@ -1,6 +1,7 @@
 package com.teckathon.missingpeopleapp.data.network
 
 import com.teckathon.missingpeopleapp.data.database.entities.Missing
+import com.teckathon.missingpeopleapp.data.database.entities.MissingO
 import com.teckathon.missingpeopleapp.data.network.responses.InformMissingResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -23,42 +24,22 @@ interface PeopleApi {
 
     /**
      *
-     * @param name String
-     * @param motherName String?
-     * @param nationalNumber String?
-     * @param gender String?
-     * @param birthDate String?
-     * @param birthPlace String?
-     * @param photoUrl String?
-     * @param missingSince String?
-     * @param lastKnownLocation String?
-     * @param contactNumber String?
+      * @param body MissingO
      * @return Response<InformMissingResponse>
      */
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
     @POST("missing")
-    suspend fun addMissing(
-        @Field("name")
-        name: String,
-        @Field("mother_name")
-        motherName: String,
-        @Field("national_number")
-        nationalNumber: String,
-        @Field("gender")
-        gender: String,
-        @Field("birth_date")
-        birthDate: String,
-        @Field("birth_place")
-        birthPlace: String,
-        @Field("photo")
-        photoUrl: String,
-        @Field("missing_since")
-        missingSince: String,
-        @Field("last_known_location")
-        lastKnownLocation: String,
-        @Field("contact_number")
-        contactNumber: String
-    ): Response<InformMissingResponse>
+    suspend fun addMissing(@Body body: MissingO): Response<InformMissingResponse>
+
+    /**
+     *
+     * @param body MissingO
+     * @return Response<InformMissingResponse>
+     */
+    @Headers("Content-Type: application/json")
+    @POST("found")
+    suspend fun addFound(@Body body: MissingO): Response<InformMissingResponse>
+
 
     companion object {
         operator fun invoke(networkInterceptor: NetworkIntercepter): PeopleApi {

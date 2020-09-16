@@ -1,9 +1,11 @@
 package com.teckathon.missingpeopleapp.data.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.teckathon.missingpeopleapp.data.database.AppDatabase
 import com.teckathon.missingpeopleapp.data.database.entities.Missing
+import com.teckathon.missingpeopleapp.data.database.entities.MissingO
 import com.teckathon.missingpeopleapp.data.network.PeopleApi
 import com.teckathon.missingpeopleapp.data.network.SafeApi
 import com.teckathon.missingpeopleapp.data.preferences.PreferenceProvider
@@ -37,7 +39,19 @@ class MissingRepository(
         }
     }
 
-
+    /**
+     *
+     * @param name String
+     * @param motherName String
+     * @param nationalNumber String
+     * @param gender String
+     * @param birthDate String
+     * @param birthPlace String
+     * @param photoUrl String
+     * @param missingSince String
+     * @param lastKnownLocation String
+     * @param contactNumber String
+     */
     suspend fun addMissing(
         name: String,
         motherName: String,
@@ -49,9 +63,70 @@ class MissingRepository(
         missingSince: String,
         lastKnownLocation: String,
         contactNumber: String
-        ) {
-        apiRequest { api.addMissing(name, motherName, nationalNumber, gender, birthDate, birthPlace, photoUrl, missingSince, lastKnownLocation, contactNumber) }
+    ) {
+        val response = apiRequest {
+            api.addMissing(
+                MissingO(
+                    name,
+                    motherName,
+                    nationalNumber,
+                    gender,
+                    birthDate,
+                    birthPlace,
+                    photoUrl,
+                    missingSince,
+                    lastKnownLocation,
+                    contactNumber
+                )
+            )
+        }
+        Log.v("Missing", response.toString())
     }
+
+    /**
+     *
+     * @param name String
+     * @param motherName String
+     * @param nationalNumber String
+     * @param gender String
+     * @param birthDate String
+     * @param birthPlace String
+     * @param photoUrl String
+     * @param missingSince String
+     * @param lastKnownLocation String
+     * @param contactNumber String
+     */
+    suspend fun addFound(
+        name: String,
+        motherName: String,
+        nationalNumber: String,
+        gender: String,
+        birthDate: String,
+        birthPlace: String,
+        photoUrl: String,
+        missingSince: String,
+        lastKnownLocation: String,
+        contactNumber: String
+    ) {
+        val response = apiRequest {
+            api.addFound(
+                MissingO(
+                    name,
+                    motherName,
+                    nationalNumber,
+                    gender,
+                    birthDate,
+                    birthPlace,
+                    photoUrl,
+                    missingSince,
+                    lastKnownLocation,
+                    contactNumber
+                )
+            )
+        }
+        Log.v("Missing", response.toString())
+    }
+
 
     /**
      *
