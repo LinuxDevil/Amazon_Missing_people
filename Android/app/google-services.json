@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "973978665617",
+    "firebase_url": "https://inputput.firebaseio.com",
+    "project_id": "inputput",
+    "storage_bucket": "inputput.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973978665617:android:6a90e5b756c9e48d893530",
+        "android_client_info": {
+          "package_name": "com.teckathon.missingpeopleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973978665617-ifqdpgmlspaijsdle8c9g4gr65h1plmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClyQxZ2Qoq4rA4PMgJNw0rzcxfi8_0j9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973978665617-ifqdpgmlspaijsdle8c9g4gr65h1plmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

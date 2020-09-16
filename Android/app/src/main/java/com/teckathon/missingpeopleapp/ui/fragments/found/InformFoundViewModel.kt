@@ -32,7 +32,7 @@ class InformFoundViewModel(private val repository: MissingRepository) : ViewMode
         lastKnownLocation: String,
         contactNumber: String,
     ) = withContext(Dispatchers.IO) {
-        repository.addFound(
+        return@withContext repository.addFound(
             name,
             motherName,
             nationalNumber,

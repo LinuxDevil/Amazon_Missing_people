@@ -37,7 +37,7 @@ class InformMissingViewModel(private val repository: MissingRepository) : ViewMo
         lastKnownLocation: String,
         contactNumber: String,
     ) = withContext(Dispatchers.IO) {
-        repository.addMissing(
+        return@withContext repository.addMissing(
             name,
             motherName,
             nationalNumber,

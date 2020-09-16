@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.google.gson.JsonParser
 import com.teckathon.missingpeopleapp.R
+import com.teckathon.missingpeopleapp.data.network.responses.InformMissingResponse
 import com.teckathon.missingpeopleapp.databinding.InformMissingFragmentBinding
 import com.teckathon.missingpeopleapp.util.Coroutines
+import com.teckathon.missingpeopleapp.util.toast
 import kotlinx.android.synthetic.main.inform_missing_fragment.*
 import org.json.JSONStringer
 import org.kodein.di.DI
@@ -23,6 +26,8 @@ import java.time.LocalDateTime
 class InformMissingFragment : Fragment(), DIAware {
 
     private lateinit var viewModel: InformMissingViewModel
+    private lateinit var response: InformMissingResponse
+
     override val di: DI by lazy { (context?.applicationContext as DIAware).di }
     private val factory: InformMissingViewModelFactory by instance()
 
@@ -44,8 +49,8 @@ class InformMissingFragment : Fragment(), DIAware {
             val locationFound: String = informLocationFoundEditText.text.toString();
             val notes = informNotesEditText.text.toString();
 
-            Coroutines.readWrite {
-                viewModel.addMissing(
+            Coroutines.main {
+                response = viewModel.addMissing(
                     name = firstName,
                     "DEFAULT",
                     "9999999999",
@@ -57,6 +62,12 @@ class InformMissingFragment : Fragment(), DIAware {
                     lastKnownLocation = locationFound,
                     notes
                 )
+
+                if (response.status == "200") {
+                    activity?.applicationContext?.toast("Added!")
+                    activity?.findNavController(R.id.fragment)?.navigateUp()
+                }
+
             }
 
         }

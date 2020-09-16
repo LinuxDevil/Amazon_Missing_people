@@ -1,6 +1,5 @@
 package com.teckathon.missingpeopleapp.data.repositories
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.teckathon.missingpeopleapp.data.database.AppDatabase
@@ -8,6 +7,7 @@ import com.teckathon.missingpeopleapp.data.database.entities.Missing
 import com.teckathon.missingpeopleapp.data.database.entities.MissingO
 import com.teckathon.missingpeopleapp.data.network.PeopleApi
 import com.teckathon.missingpeopleapp.data.network.SafeApi
+import com.teckathon.missingpeopleapp.data.network.responses.InformMissingResponse
 import com.teckathon.missingpeopleapp.data.preferences.PreferenceProvider
 import com.teckathon.missingpeopleapp.util.Coroutines
 import kotlinx.coroutines.Dispatchers
@@ -51,6 +51,7 @@ class MissingRepository(
      * @param missingSince String
      * @param lastKnownLocation String
      * @param contactNumber String
+     * @return InformMissingResponse
      */
     suspend fun addMissing(
         name: String,
@@ -63,24 +64,23 @@ class MissingRepository(
         missingSince: String,
         lastKnownLocation: String,
         contactNumber: String
-    ) {
-        val response = apiRequest {
-            api.addMissing(
-                MissingO(
-                    name,
-                    motherName,
-                    nationalNumber,
-                    gender,
-                    birthDate,
-                    birthPlace,
-                    photoUrl,
-                    missingSince,
-                    lastKnownLocation,
-                    contactNumber
-                )
+    ): InformMissingResponse {
+        return apiRequest {
+        api.addMissing(
+            MissingO(
+                name,
+                motherName,
+                nationalNumber,
+                gender,
+                birthDate,
+                birthPlace,
+                photoUrl,
+                missingSince,
+                lastKnownLocation,
+                contactNumber
             )
-        }
-        Log.v("Missing", response.toString())
+        )
+    }
     }
 
     /**
@@ -95,6 +95,7 @@ class MissingRepository(
      * @param missingSince String
      * @param lastKnownLocation String
      * @param contactNumber String
+     * @return InformMissingResponse
      */
     suspend fun addFound(
         name: String,
@@ -107,7 +108,7 @@ class MissingRepository(
         missingSince: String,
         lastKnownLocation: String,
         contactNumber: String
-    ) {
+    ): InformMissingResponse {
         val response = apiRequest {
             api.addFound(
                 MissingO(
@@ -124,7 +125,7 @@ class MissingRepository(
                 )
             )
         }
-        Log.v("Missing", response.toString())
+        return response;
     }
 
 
