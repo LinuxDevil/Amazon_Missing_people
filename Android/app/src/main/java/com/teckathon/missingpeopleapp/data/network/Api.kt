@@ -39,7 +39,7 @@ interface Api {
 
             return Retrofit.Builder()
                 .client(OkHttpClient.Builder().addInterceptor(networkIntercepter).build())
-                .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
+                .baseUrl("https://2oj19npx8j.execute-api.eu-central-1.amazonaws.com/dev/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(Api::class.java)

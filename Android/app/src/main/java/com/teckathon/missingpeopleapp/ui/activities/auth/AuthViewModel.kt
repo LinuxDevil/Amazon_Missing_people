@@ -47,6 +47,6 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
      * @param user User
      * @return Long
      */
-    suspend fun storeUser(user: User) =  repository.saveUser(user)
+    suspend fun storeUser(user: User) =  repository.saveUser(User(1223,"Default","default@mail.com","123","","",""))
 
 }

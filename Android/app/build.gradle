@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -37,7 +38,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     def lifecycle_version = "2.2.0"
@@ -101,5 +102,9 @@ dependencies {
 
     // Bottom Navigation Bar
     implementation 'nl.joery.animatedbottombar:library:1.0.8'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-auth:19.4.0'
 
 }
